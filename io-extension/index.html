@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scratch Clone - CS141</title>
+    <script src="static/jquery-3.2.1.min.js"></script>
+    <script src="static/google-blockly/blockly_compressed.js"></script>
+    <script src="static/google-blockly/blocks_compressed.js"></script>
+    <script src="static/google-blockly/msg/js/en.js"></script>
+    <script src="static/FileSaver.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/index.css">
+</head>
+<body>
+    <header>
+        <span id="importExportBox">
+            <div id="importBox">
+              <input id="importInput" type="file">
+            </div>
+            <button id="importButton">Import</button>
+            <button id="exportButton">Export</button>
+        </span>
+        <button id="runButton">Evaluate</button>
+    </header>
+    
+    <main id="blocklyDiv"></main>
+
+    <div id="output">
+        <div class="message">Output will appear here.</div>
+    </div>
+
+    <xml id="toolbox">
+        <category name="Variables" custom="VARIABLE" colour="330"></category>
+        <category name="Control" colour="210">
+            <block type="controls_if"></block>
+            <block type="controls_repeat_ext"></block>
+            <block type="fn"></block>
+            <block type="call"></block>
+        </category>
+        <category name="Maths" colour="">
+            <block type="math_number"></block>
+            <block type="math_arithmetic"></block>
+        </category>
+        <category name="Logic" colour="100">
+            <block type="logic_compare"></block>
+        </category>
+    </xml>
+
+    <xml id="template">
+        <block type="entry_point" x="200" y="50">
+        </block>
+    </xml>
+    <script src="static/index.js">
+    </script>
+</body>
+</html>

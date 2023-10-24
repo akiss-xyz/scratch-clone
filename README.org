@@ -1,0 +1,63 @@
+#+TITLE: A neat and tidy scratch-like interpreter in Haskell!
+#+LANGUAGE: en
+#+OPTIONS: toc:2
+#+REVEAL_INIT_OPTIONS: width:1200, height:800, margin: 0.1, minScale:0.2, maxScale:2.5, transition:'cube'
+#+REVEAL_THEME: moon
+
+* Disclaimer - Plagiarism notice
+This is a note from the module organiser on CS141 Functional Programming:
+Module organisers regularly scan GitHub for commonalities between submitted assignments and publicly available code. You are reminded to follow the plagiarism policy included with CS141 coursework specifications and the University Regulation 11 (Academic Integrity). DO NOT replicate any portion of this repository, including pieces of code, in your own submitted work. DO NOT use GitHub Copilot or similar software to write chunks of your code, as it may reproduce this work without your knowing. And please cite any resources or information you have found helpful during the creation of your own work, which may include this repository. 🙂
+* Hello! This is my functional programming coursework, written in lovely Haskell.
+The coursework itself can be found in the ~scratch-clone~ directory.
+
+[[./side-effect-demo-calculator.png]]
+[[./side-effect-demo-calculator-output.png]]
+
+You can try this locally using (once the ~io-extension~ directory project has been started with ~stack run~):
+
+[[./side-effect-demo-guide.png]]
+* My two extensions to this coursework: subroutines and side effects.
+My extension to this coursework (as well as implementing functions...) was to rewrite the (originally pure) interpreter to handle side effects in the program. The example used here is console IO, but could now take any other form!
+* Where's the code? Main files of interest
+You likely care about the interpreter itself the most.
+
+The data types representing the language are in:
+~scratch-clone/src/Language.hs~
+
+The interpreter is implemented in:
+~scratch-clone/src/Interpreter.hs~
+
+Then, for the more advanced IO/side effects extension, you care about:
+
+The updated language description, now including 'built-in statements' or ~BuiltinStmt~:
+~io-extension/src/Language.hs~
+
+The much-updated interpreter, re-written with more monads handling side effects inside the code:
+~io-extension/src/Interpreter.hs~
+
+* Build & run instructions
+Enter the project you want to build. Likely, this is the ~scratch-clone~ directory.
+
+The project is built and ran using ~stack~. Please install ~stack~!
+
+Then, you should be able to simply:
+
+#+begin_src bash
+stack build
+#+end_src
+
+You may run into errors. If so, run the following:
+
+#+begin_src bash
+stack clean --full
+stack update
+stack upgrade
+#+end_src
+
+And retry the build.
+
+Once done, you're now free to run the server with:
+
+#+begin_src bash
+stack run
+#+end_src
